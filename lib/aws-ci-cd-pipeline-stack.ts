@@ -18,7 +18,6 @@ export class AwsCiCdPipelineStack extends cdk.Stack {
           "chudoklates/aws-ci-cd-pipeline",
           "main"
         ),
-        installCommands: ["npm i -g npm@latest"],
         commands: ["npm ci", "npm run build", "npx cdk synth"],
       }),
     });
