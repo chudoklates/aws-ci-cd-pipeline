@@ -2,6 +2,9 @@
 import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
 import { AwsCiCdPipelineStack } from "../lib/aws-ci-cd-pipeline-stack";
+import { config } from "dotenv";
+
+config();
 
 const app = new cdk.App();
 new AwsCiCdPipelineStack(app, "AwsCiCdPipelineStack", {
@@ -16,8 +19,8 @@ new AwsCiCdPipelineStack(app, "AwsCiCdPipelineStack", {
   /* Uncomment the next line if you know exactly what Account and Region you
    * want to deploy the stack to. */
   env: {
-    account: "152960574493",
-    region: "eu-north-1",
+    account: process.env.CDK_DEFAULT_ACCOUNT,
+    region: process.env.CDK_DEFAULT_REGION,
   },
 
   /* For more information, see https://docs.aws.amazon.com/cdk/latest/guide/environments.html */
